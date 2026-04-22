@@ -9,4 +9,4 @@
 To run the script, copy and execute the following loader:
 
 ```lua
-loadstring(game:HttpGet("[https://raw.githubusercontent.com/janjirapetkum-collab/Oxygen/refs/heads/main/Jobapplication.lua](https://raw.githubusercontent.com/janjirapetkum-collab/Oxygen/refs/heads/main/Jobapplication.lua)"))()
+loadstring(game:HttpGet("[https://raw.githubusercontent.com/janjirapetkum-collab/Oxygen/refs/heads/main/Jobapplication.lua"))()
