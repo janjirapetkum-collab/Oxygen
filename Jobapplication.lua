@@ -1,4 +1,4 @@
--- [[ OXYGEN V2 ]]
+-- [[ OXYGEN V2 - THE COMPLETE UNABRIDGED HUMANIZED BUILD ]]
 local RS = game:GetService("RunService")
 local Players = game:GetService("Players")
 local UIS = game:GetService("UserInputService")
@@ -20,10 +20,14 @@ local function ApplyBypass()
 end
 ApplyBypass()
 
--- [[ FOV VISUALIZER ]]
+-- [[ FOV VISUALIZER (OUTLINED ONLY) ]]
 local FOVCircle = Drawing.new("Circle")
-FOVCircle.Thickness, FOVCircle.Color, FOVCircle.Transparency = 1.5, Color3.new(1, 1, 1), 0.8
-FOVCircle.Visible, FOVCircle.Radius = false, 100 
+FOVCircle.Thickness = 1.5
+FOVCircle.Color = Color3.new(1, 1, 1)
+FOVCircle.Transparency = 0.8
+FOVCircle.Filled = false -- ENSURES IT IS NOT A FILLED CIRCLE
+FOVCircle.Visible = false
+FOVCircle.Radius = 100 
 
 -- [[ MASTER CONFIG ]]
 _G.Config = {
@@ -39,7 +43,7 @@ local Armors = {"KN Comp. Spartan B", "SEK Fortress", "926 Composite"}
 
 -- [[ UI INITIALIZATION ]]
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-local Window = Rayfield:CreateWindow({Name = "OXYGEN | V2 ACS", LoadingTitle = "Oxygen ACS", ConfigurationSaving = {Enabled = false}})
+local Window = Rayfield:CreateWindow({Name = "OXYGEN | V2", LoadingTitle = "Oxygen System", ConfigurationSaving = {Enabled = false}})
 
 local VisualsTab = Window:CreateTab("Visuals")
 local AimTab = Window:CreateTab("Aimtouch")
@@ -69,7 +73,7 @@ VisualsTab:CreateToggle({Name = "Player Loot", Callback = function(v) _G.Config.
 
 VisualsTab:CreateSection("ESP GEAR")
 VisualsTab:CreateToggle({Name = "Gear Master", Callback = function(v) _G.Config.Gear.Master = v end})
-VisualsTab:CreateToggle({Name = "Scan Protection", Callback = function(v) _G.Config.Gear.Scan = v end})
+VisualsTab:CreateToggle({Name = "Armor/Helmet ESP", Callback = function(v) _G.Config.Gear.Scan = v end})
 
 -- [[ AIMTOUCH SECTION ]]
 AimTab:CreateSection("Targeting")
@@ -82,9 +86,26 @@ AimTab:CreateDropdown({Name = "Target Bone", Options = {"Head", "HumanoidRootPar
 AimTab:CreateSection("Mechanics")
 AimTab:CreateToggle({Name = "Enable Aimtouch", Callback = function(v) _G.Config.Aim.Enabled = v end})
 AimTab:CreateToggle({Name = "Wall Check", Callback = function(v) _G.Config.Aim.WallCheck = v end})
-AimTab:CreateToggle({Name = "Show FOV Circle", Callback = function(v) _G.Config.Aim.ShowFOV = v end})
-AimTab:CreateSlider({Name = "FOV Size", Range = {10, 800}, CurrentValue = 100, Callback = function(v) _G.Config.Aim.FOV = v; FOVCircle.Radius = v end})
-AimTab:CreateSlider({Name = "Smoothness", Range = {1, 100}, CurrentValue = 10, Callback = function(v) _G.Config.Aim.Smoothness = v end})
+AimTab:CreateToggle({Name = "Show POV Circle", Callback = function(v) _G.Config.Aim.ShowFOV = v end})
+
+-- UPDATED SLIDERS
+AimTab:CreateSlider({
+    Name = "POV Size (px)", 
+    Range = {10, 800}, 
+    Increment = 1, 
+    Suffix = "px", 
+    CurrentValue = 100, 
+    Callback = function(v) _G.Config.Aim.FOV = v; FOVCircle.Radius = v end
+})
+
+AimTab:CreateSlider({
+    Name = "Smoothness (%)", 
+    Range = {1, 100}, 
+    Increment = 1, 
+    Suffix = "%", 
+    CurrentValue = 10, 
+    Callback = function(v) _G.Config.Aim.Smoothness = v end
+})
 
 -- [[ TESTING SECTION ]]
 TestTab:CreateSection("Integrity Check")
