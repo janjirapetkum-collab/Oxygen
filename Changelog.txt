@@ -1,8 +1,32 @@
-OXYGEN V2 LOGS
---------------------
-[+] POV Locked to Center
-[+] Smoothness uses %
-[+] Bypass Scanner added
---------------------
-[FUTURE] Silent Aim
+=======================================
+               OXYGEN V2               
+=======================================
+[VERSION 2.1.0] - LATEST STABLE BUILD
+Updated: April 23, 2026
 
+## NEW FEATURES
+* [ADDED] ESP GEAR Scanner: Scans for Protection Parts.
+    - Helmets: IND50, KSS2, RST, F70, PAS Standard.
+    - Armor: KN Comp, SEK Fortress, 926 Composite.
+* [ADDED] Dynamic Health ESP:
+    - Real-time HP tracking for Players & Scavs.
+    - Color-coded status (Green > Yellow > Red).
+* [ADDED] Triple-Stacking Labels: Improved UI layout to 
+  prevent Name, Health, and Gear text from overlapping.
+
+## SYSTEM UPDATES
+* [REFRESHED] Logs System: Integrated live console feed 
+  directly into the Logs Tab.
+* [UPGRADED] Security: Optimized Metatable Hook for the 
+  latest ExecutorDetection remotes.
+* [IMPROVED] Humanized Core: Refactored ESP logic for 
+  better performance and lower CPU usage.
+
+## FIXES
+* [FIXED] FOV Circle positioning on high-refresh monitors.
+* [FIXED] Manual Bypass pcall triggers.
+* [FIXED] Scav name tags disappearing after respawn.
+
+=======================================
+         STAY SAFE | STAY OXYGEN       
+=======================================
