@@ -1,32 +1,21 @@
-=======================================
-               OXYGEN V2               
-=======================================
-[VERSION 2.1.0] - LATEST STABLE BUILD
-Updated: April 23, 2026
-
-## NEW FEATURES
-* [ADDED] ESP GEAR Scanner: Scans for Protection Parts.
-    - Helmets: IND50, KSS2, RST, F70, PAS Standard.
-    - Armor: KN Comp, SEK Fortress, 926 Composite.
-* [ADDED] Dynamic Health ESP:
-    - Real-time HP tracking for Players & Scavs.
-    - Color-coded status (Green > Yellow > Red).
-* [ADDED] Triple-Stacking Labels: Improved UI layout to 
-  prevent Name, Health, and Gear text from overlapping.
-
-## SYSTEM UPDATES
-* [REFRESHED] Logs System: Integrated live console feed 
-  directly into the Logs Tab.
-* [UPGRADED] Security: Optimized Metatable Hook for the 
-  latest ExecutorDetection remotes.
-* [IMPROVED] Humanized Core: Refactored ESP logic for 
-  better performance and lower CPU usage.
-
-## FIXES
-* [FIXED] FOV Circle positioning on high-refresh monitors.
-* [FIXED] Manual Bypass pcall triggers.
-* [FIXED] Scav name tags disappearing after respawn.
-
-=======================================
-         STAY SAFE | STAY OXYGEN       
-=======================================
+OXYGEN V2 | STABLE BUILD 2.0.1
+Date: April 24, 2026
+Status: ✅ STABLE
+[COMBAT UPGRADES]
+HBSS Silent Aim Integration: Fully implemented the "HBSS Hooking List," intercepting 4 key engine methods: Raycast, FindPartOnRay, ScreenPointToRay, and Mouse.Hit.
+Mobile Triggerbot V2: Rewritten from scratch to use Tool:Activate() and Touch input spoofing. This ensures the weapon fires without needing a physical keyboard or mouse object.
+Independent Trigger Logic: Triggerbot now has its own dedicated FOV Slider and Wall Check toggle, separate from the main Aimtouch settings for maximum precision.
+Reaction Delay: Added a randomized humanized delay (0ms - 200ms) to bypass server-side "Instant Response" detections.
+[PERFORMANCE & ENGINE]
+Global Localization: Critical Roblox functions (Camera, WorldToViewport, etc.) are now cached. This significantly reduces CPU usage and FPS drops on mobile devices during combat.
+Signal Cleaner: Implemented SafeTag logic to prevent "Instance Spam." The ESP now checks for existing labels instead of creating new ones every frame, preventing memory leaks.
+Heartbeat Sync: Combat calculations moved to the Heartbeat signal to stay synced with the game's physics engine rather than the display framerate.
+ipairs Optimization: All player and NPC loops now use ipairs for faster table iteration on Luau VM.
+[BYPASS & SECURITY]
+V3.5 Bypass Engine: Expanded "ExecutorDetection" blocking. The script now monitors for specific remote naming patterns (e.g., "AdCheck", "Detection") used by modern anticheats.
+Metatable Recovery: Added an auto-recovery system that re-injects hooks upon character death/respawn to prevent the game from clearing the script's memory modifications.
+Checkcaller Protection: All hooks now use checkcaller() verification to ensure Oxygen's internal scripts never conflict with the game's hooked functions.
+[BUG FIXES]
+Fixed an issue where Silent Aim would cause "Invalid Ray" errors on certain mobile executors.
+Fixed a bug where the Keyboard would occasionally pop up when using Triggerbot on specific tablet devices.
+Resolved ESP labels "flickering" when multiple targets were within range.
